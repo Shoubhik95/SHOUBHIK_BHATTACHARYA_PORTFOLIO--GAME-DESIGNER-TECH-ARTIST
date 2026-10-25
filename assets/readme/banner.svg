@@ -1,0 +1,100 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 420" width="1200" height="420" role="img" aria-label="Shoubhik Bhattacharya — Game Designer and Technical Artist portfolio">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#02344f"/>
+      <stop offset=".55" stop-color="#046382"/>
+      <stop offset="1" stop-color="#0594a8"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="100%" r="60%">
+      <stop offset="0" stop-color="#5ceaf0" stop-opacity=".55"/>
+      <stop offset="1" stop-color="#5ceaf0" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="beam" x1="0" y1="1" x2="0" y2="0">
+      <stop offset="0" stop-color="#7ef3ef" stop-opacity=".35"/>
+      <stop offset="1" stop-color="#7ef3ef" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="disc" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#8ce2e8"/>
+      <stop offset="1" stop-color="#18a8b8"/>
+    </linearGradient>
+    <clipPath id="frame"><path d="M0 0H1160L1200 40V420H0Z"/></clipPath>
+    <style>
+      .t { font-family: 'Arial Black', 'Segoe UI', Arial, sans-serif; fill: #e9eef0; }
+      .u { font-family: 'Segoe UI', Arial, sans-serif; letter-spacing: .38em; fill: #7ef3ef; }
+      .tag { font-family: 'Segoe UI', Arial, sans-serif; letter-spacing: .18em; fill: #ffffff; opacity: .85; }
+      .ring { animation: dash 6s linear infinite; }
+      .beam { animation: pulse 4s ease-in-out infinite; }
+      .fig { animation: float 4.5s ease-in-out infinite; }
+      .p { animation: rise 7s linear infinite; }
+      .p2 { animation-duration: 9s; animation-delay: -3s; }
+      .p3 { animation-duration: 11s; animation-delay: -6s; }
+      .in1 { animation: fade 1.2s ease-out both; }
+      .in2 { animation: fade 1.2s .35s ease-out both; }
+      .in3 { animation: fade 1.2s .7s ease-out both; }
+      .scan { animation: scan 6s ease-in-out infinite; }
+      @keyframes dash { to { stroke-dashoffset: -72; } }
+      @keyframes pulse { 0%,100% { opacity: .55; } 50% { opacity: 1; } }
+      @keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-7px); } }
+      @keyframes rise { from { transform: translateY(0); opacity: 0; } 15% { opacity: .8; } to { transform: translateY(-340px); opacity: 0; } }
+      @keyframes fade { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+      @keyframes scan { 0%,100% { transform: translateX(-40px); opacity: 0; } 50% { transform: translateX(40px); opacity: 1; } }
+      @media (prefers-reduced-motion: reduce) { * { animation: none !important; } }
+    </style>
+  </defs>
+
+  <g clip-path="url(#frame)">
+    <rect width="1200" height="420" fill="url(#bg)"/>
+    <rect width="1200" height="420" fill="url(#glow)"/>
+
+    <!-- light beam -->
+    <path class="beam" d="M500 336L430 0H770L700 336Z" fill="url(#beam)"/>
+
+    <!-- floor -->
+    <rect y="338" width="1200" height="82" fill="#01223e"/>
+
+    <!-- title -->
+    <g text-anchor="middle">
+      <text class="t in1" x="600" y="98" font-size="74">SHOUBHIK</text>
+      <text class="t in1" x="600" y="168" font-size="74">BHATTACHARYA</text>
+      <text class="u in2" x="600" y="212" font-size="22">PORTFOLIO</text>
+    </g>
+
+    <!-- platform -->
+    <ellipse cx="600" cy="360" rx="190" ry="34" fill="#06284d"/>
+    <ellipse cx="600" cy="348" rx="186" ry="32" fill="none" stroke="#fff" stroke-width="3"/>
+    <ellipse cx="600" cy="336" rx="176" ry="29" fill="url(#disc)"/>
+    <ellipse class="ring" cx="600" cy="336" rx="120" ry="19" fill="none" stroke="#fff" stroke-opacity=".7" stroke-width="2" stroke-dasharray="8 10"/>
+
+    <!-- stylised figure (silhouette stand-in for the 3D character) -->
+    <g class="fig"><g transform="translate(600 330) scale(.62) translate(-600 -330)">
+      <ellipse cx="600" cy="330" rx="46" ry="8" fill="#02344f" opacity=".45"/>
+      <rect x="587" y="262" width="11" height="66" rx="4" fill="#102a3c"/>
+      <rect x="602" y="262" width="11" height="66" rx="4" fill="#102a3c"/>
+      <path d="M570 196Q600 184 630 196L634 268H566Z" fill="#2f7e9a"/>
+      <rect x="553" y="198" width="14" height="62" rx="6" fill="#d3a68a"/>
+      <rect x="633" y="198" width="14" height="62" rx="6" fill="#d3a68a"/>
+      <circle cx="600" cy="176" r="19" fill="#d3a68a"/>
+      <path d="M580 172Q582 152 600 152Q618 152 620 172Q612 164 600 164Q588 164 580 172Z" fill="#1d1a1b"/>
+    </g></g>
+
+    <!-- rising particles -->
+    <g fill="#7ef3ef">
+      <circle class="p" cx="470" cy="330" r="2.5"/>
+      <circle class="p p2" cx="740" cy="334" r="2"/>
+      <circle class="p p3" cx="540" cy="338" r="1.8"/>
+      <circle class="p p2" cx="660" cy="332" r="2.2"/>
+      <circle class="p" cx="820" cy="336" r="1.6" style="animation-delay:-4s"/>
+      <circle class="p p3" cx="390" cy="336" r="1.8" style="animation-delay:-2s"/>
+    </g>
+
+    <!-- side tags -->
+    <g class="in3" font-size="15" font-weight="600">
+      <text class="tag" x="60" y="380">GAME DESIGNER</text>
+      <text class="tag" x="1140" y="380" text-anchor="end">TECHNICAL ARTIST</text>
+    </g>
+
+    <!-- scanning accent line -->
+    <rect class="scan" x="560" y="404" width="80" height="3" fill="#7ef3ef"/>
+  </g>
+  <path d="M0 .5H1160L1199.5 40V419.5H.5Z" fill="none" stroke="#7ef3ef" stroke-opacity=".5"/>
+</svg>

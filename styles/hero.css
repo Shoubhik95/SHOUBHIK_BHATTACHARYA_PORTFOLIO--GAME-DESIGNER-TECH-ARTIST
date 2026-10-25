@@ -1,0 +1,81 @@
+/* Hero: heavy PORTFOLIO title behind the character, glowing platform, MODE panel, nameplate */
+.hero { position: relative; min-height: 100vh; min-height: 100svh; overflow: hidden; isolation: isolate; padding: 0 var(--gutter);
+  background:
+    /* Platform reflection / contact ambient on the floor */
+    radial-gradient(ellipse 52% 16% at 50% 75.8%, rgba(14, 155, 182, 0.48) 0%, transparent 72%),
+    /* Studio floor ground plane below 75.5% */
+    linear-gradient(180deg, transparent 0 75.5%, #01223e 75.5%, #022e51 100%),
+    /* Central bright turquoise glow core directly behind character and platform */
+    radial-gradient(ellipse 56% 50% at 50% 64%, rgba(26, 200, 214, 0.5) 0%, rgba(18, 176, 192, 0.38) 28%, rgba(5, 140, 164, 0.22) 58%, transparent 80%),
+    /* Broad horizontal cyan atmospheric wash across middle wall */
+    radial-gradient(ellipse 95% 68% at 50% 55%, rgba(14, 185, 204, 0.42) 0%, rgba(4, 135, 160, 0.22) 55%, transparent 85%),
+    /* Atmospheric vignette at top and corners */
+    radial-gradient(ellipse 112% 75% at 50% 18%, transparent 42%, rgba(1, 24, 42, 0.58) 100%),
+    /* Back wall vertical gradient: deep blue-teal top down to vibrant cyan-teal */
+    linear-gradient(180deg, #02344f 0%, #033c5d 14%, #045878 36%, #037593 56%, #059bb2 75.5%, transparent 75.5%);
+}
+
+/* Fine cinematic film grain texture across the hero background */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image: url("../public/images/textures/film-grain.png");
+  background-repeat: repeat;
+  background-size: 256px 256px;
+  mix-blend-mode: overlay;
+  opacity: 0.58;
+}
+
+.hero-title { position: absolute; z-index: 1; left: 0; right: 0; top: 9%; padding: 0 var(--gutter); }
+.hero-title h1 { display: grid; justify-items: center; text-align: center; text-transform: uppercase; color: #e6e6e6; }
+.hero-name { display: grid; justify-items: center; font: 400 clamp(2.4rem, 8vw, 9rem)/.92 var(--font-heavy); letter-spacing: -.01em; }
+.hero-sub { margin-top: clamp(.5rem, 1.2vw, 1.1rem); font: 400 clamp(1.1rem, 2.8vw, 3.1rem)/1 var(--font-heavy); letter-spacing: .9em; margin-right: -.9em; color: var(--cyan-light); }
+
+.hero-stage { position: absolute; inset: 0; z-index: 1; }
+#hero-canvas { width: 100%; height: 100%; display: block; touch-action: pan-y; cursor: grab; }
+#hero-canvas.dragging { cursor: grabbing; }
+.hero-loading { position: absolute; left: 50%; top: 45%; transform: translate(-50%, -50%); display: flex; flex-direction: column; align-items: center; gap: .8rem; font: 500 1.1rem/1 var(--font-ui); letter-spacing: .2em; text-transform: uppercase; color: #fff; transition: opacity .6s; pointer-events: none; }
+.hero-loading.done { opacity: 0; }
+.hero-loading .ring { width: 30px; height: 30px; border: 2px solid rgba(255,255,255,.35); border-top-color: #fff; border-radius: 50%; animation: spin 1s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+.hero-fallback[hidden] { display: none; }
+.hero-fallback { position: absolute; inset: 0; display: grid; place-items: center; padding-bottom: 8vh; }
+.fallback-platform { width: min(52vw, 340px); aspect-ratio: 1; border-radius: 50%; padding: 5%; background: radial-gradient(circle, #5ceaf0, #14a4c0); border: 3px solid #fff; box-shadow: 0 0 70px rgba(92,234,240,.8); }
+.fallback-platform img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
+
+/* MODE panel (bottom-right) */
+.mode-panel { position: absolute; z-index: 3; right: clamp(1rem, 4vw, 4rem); top: 58%; transform: translateY(-50%); width: clamp(12.5rem, 18vw, 18rem); padding: 1rem 1.1rem 1.2rem; background: rgba(5, 60, 92, .88); box-shadow: inset 0 0 0 1px rgba(126,243,239,.3); clip-path: polygon(0 0, calc(100% - 24px) 0, 100% 24px, 100% 100%, 0 100%); }
+.mode-label { font: 400 1.1rem/1 var(--font-ui); letter-spacing: .08em; text-transform: uppercase; margin-bottom: .45rem; }
+.mode-role { display: grid; font: 400 clamp(1.6rem, 2.5vw, 2.5rem)/.95 var(--font-heavy); text-transform: uppercase; }
+.mode-role b { font-weight: 400; }
+.mode-role b:first-child { color: var(--cyan); }
+.mode-sub { margin-top: .45rem; font: 500 clamp(1rem, 1.15vw, 1.15rem)/1 var(--font-ui); text-transform: uppercase; letter-spacing: .06em; }
+.btn-ready { position: relative; margin-top: 1rem; width: 100%; min-height: 44px; padding: .5rem 2.2rem .5rem 1rem; font-size: clamp(1.15rem, 1.5vw, 1.4rem); border-radius: 12px; justify-content: center; box-shadow: 0 0 0 3px rgba(6,60,84,.55), 0 0 20px rgba(92,234,240,.7); }
+.btn-ready:hover { box-shadow: 0 0 0 3px rgba(6,60,84,.55), 0 0 34px rgba(126,243,239,1); }
+.btn-ready svg { position: absolute; right: .55rem; bottom: .35rem; width: 28px; height: 28px; filter: drop-shadow(0 2px 3px rgba(0,0,0,.45)); }
+
+.hero-hint { position: absolute; z-index: 3; left: 50%; bottom: clamp(1.2rem, 4vh, 2.4rem); transform: translateX(-50%); font: 400 1rem/1 var(--font-ui); letter-spacing: .24em; text-transform: uppercase; color: rgba(255,255,255,.75); transition: opacity .5s; pointer-events: none; }
+.hero-hint.hide { opacity: 0; }
+
+@media (max-width: 900px) {
+  .hero { min-height: 0; padding: calc(var(--header-h) + 70svh) var(--gutter) 5.5rem; display: grid; gap: 1.5rem;
+    background:
+      radial-gradient(ellipse 65% 18% at 50% calc(var(--header-h) + 65svh), rgba(14, 155, 182, 0.48) 0%, transparent 72%),
+      linear-gradient(180deg, transparent 0 calc(var(--header-h) + 65svh), #01223e calc(var(--header-h) + 65svh), #022e51 100%),
+      radial-gradient(ellipse 65% 48% at 50% calc(var(--header-h) + 50svh), rgba(26, 200, 214, 0.48) 0%, rgba(18, 176, 192, 0.36) 30%, transparent 78%),
+      radial-gradient(ellipse 100% 65% at 50% calc(var(--header-h) + 42svh), rgba(14, 185, 204, 0.38) 0%, transparent 82%),
+      linear-gradient(180deg, #02344f 0%, #033c5d 15%, #045878 40%, #059bb2 calc(var(--header-h) + 65svh), transparent calc(var(--header-h) + 65svh)); }
+  .hero-stage { inset: var(--header-h) 0 auto 0; height: 66svh; }
+  .hero-title { top: calc(var(--header-h) + 8svh); }
+  .hero-name { font-size: clamp(2rem, 10vw, 6.5rem); }
+  .hero-sub { font-size: clamp(1rem, 4.6vw, 2.2rem); }
+  .mode-panel { position: relative; right: auto; top: auto; transform: none; width: 100%; max-width: 20rem; justify-self: center; }
+  .hero-hint { bottom: auto; top: calc(var(--header-h) + 66svh - 1.8rem); }
+}
+@media (max-height: 520px) and (orientation: landscape) and (max-width: 900px) {
+  .hero { padding-top: calc(var(--header-h) + 92svh); }
+  .hero-stage { height: 92svh; }
+}

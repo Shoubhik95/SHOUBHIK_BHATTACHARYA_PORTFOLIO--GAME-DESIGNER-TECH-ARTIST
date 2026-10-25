@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Shoubhik Bhattacharya — Portfolio 2026</title>
+  <meta name="description" content="Portfolio of Shoubhik Bhattacharya, a game designer and technical artist working in Unreal Engine 5, Unity 6 and Blender.">
+  <meta name="theme-color" content="#0a5a8a">
+  <meta property="og:title" content="Shoubhik Bhattacharya — Game Designer & Technical Artist">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230a5a8a'/%3E%3Ccircle cx='16' cy='16' r='7' fill='none' stroke='%237ef3ef' stroke-width='2.5'/%3E%3C/svg%3E">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Outfit:wght@600;800&family=Barlow+Condensed:wght@300;400;500;600;700&family=Barlow:wght@400;500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles/base.css">
+  <link rel="stylesheet" href="styles/hero.css">
+  <link rel="stylesheet" href="styles/sections.css">
+  <link rel="stylesheet" href="styles/projects.css">
+
+  <script type="importmap">
+  { "imports": { "three": "./vendor/three/three.module.min.js", "three/addons/": "./vendor/three/addons/" } }
+  </script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header" id="site-header">
+  <button class="nav-toggle" id="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav">
+    <span class="sr-only">Menu</span><span class="bars" aria-hidden="true"></span>
+  </button>
+  <nav id="primary-nav" class="primary-nav" aria-label="Primary">
+    <span class="nav-ind" aria-hidden="true"></span>
+    <a href="#home" data-section="home">Home</a>
+    <a href="#about" data-section="about">About</a>
+    <a href="#skills" data-section="skills">Skills</a>
+    <a href="#projects" data-section="projects">Projects</a>
+    <a href="#experience" data-section="experience">Experience</a>
+    <a href="#education" data-section="education">Education</a>
+    <a href="#showreel" data-section="showreel">Showreel</a>
+    <a href="#contact" data-section="contact">Contact</a>
+  </nav>
+</header>
+
+<main id="main">
+  <!-- HERO -->
+  <section class="hero" id="home" aria-labelledby="hero-title">
+    <div class="hero-title" aria-hidden="false">
+      <h1 id="hero-title"><span class="sr-only">Shoubhik Bhattacharya — Portfolio. Game Designer and Technical Artist.</span><span class="hero-name" aria-hidden="true"><span>Shoubhik</span><span>Bhattacharya</span></span><span class="hero-sub" aria-hidden="true">Portfolio</span></h1>
+    </div>
+
+    <div class="hero-stage" id="hero-stage">
+      <canvas id="hero-canvas" aria-hidden="true"></canvas>
+      <div class="hero-fallback" id="hero-fallback" hidden>
+        <div class="fallback-platform"><img src="public/images/profile/pixel-avatar.webp" alt="Pixel-art portrait of Shoubhik wearing a VR headset" width="360" height="360"></div>
+      </div>
+      <div class="hero-loading" id="hero-loading" role="status"><span class="ring"></span><span>Loading</span></div>
+    </div>
+
+    <aside class="mode-panel" aria-label="Role">
+      <p class="mode-label">Mode</p>
+      <p class="mode-role"><b>Game</b><b>Designer</b></p>
+      <p class="mode-sub">&amp; Technical Artist</p>
+      <a class="btn-ready" id="resume-btn" href="public/documents/Shoubhik_Bhattacharya_Resume.pdf" target="_blank" rel="noopener"><span>Resume</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 2l7.5 19 2.6-8 8-2.7z" fill="#fff" stroke="#06284d" stroke-width="1.4" stroke-linejoin="round"/></svg></a>
+    </aside>
+
+    <p class="hero-hint" id="hero-hint" aria-hidden="true">Drag to rotate</p>
+  </section>
+
+  <!-- ABOUT ME -->
+  <section class="screen" id="about" aria-labelledby="about-h">
+    <h2 class="screen-title" id="about-h">About me</h2>
+    <div class="about-layout">
+      <div class="about-left reveal">
+        <p class="name-tag"><span>Shoubhik Bhattacharya</span></p>
+        <div class="about-text" id="about-text"></div>
+        <ul class="tile-stack" id="about-tiles"></ul>
+      </div>
+      <figure class="about-figure reveal">
+        <img src="public/images/profile/portrait.webp" alt="Portrait of Shoubhik Bhattacharya in a red shirt, standing in front of a flowering hedge" width="720" height="1280" loading="lazy">
+        <figcaption>Shoubhik Bhattacharya<span>Game Designer &amp; Technical Artist</span></figcaption>
+      </figure>
+      <div class="about-right reveal">
+        <h3 class="uline">Software skills</h3>
+        <ul class="soft-grid" id="soft-grid"></ul>
+        <div class="contact-card">
+          <address id="about-contact"></address>
+          <a class="btn-glow" href="#contact">Contact</a>
+        </div>
+        <ul class="about-links" id="about-links" aria-label="Profiles"></ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section class="screen" id="skills" aria-labelledby="skills-h">
+    <h2 class="screen-title" id="skills-h">Skills &amp; workflow</h2>
+    <div class="skills-grid" id="skills-grid"></div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section class="screen" id="projects" aria-labelledby="projects-h">
+    <h2 class="screen-title" id="projects-h">Selected projects</h2>
+    <div class="filter-bar reveal" id="filter-bar" role="group" aria-label="Filter projects"></div>
+    <p class="sr-only" id="filter-status" role="status"></p>
+    <div class="project-grid" id="project-grid"></div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section class="screen" id="experience" aria-labelledby="exp-h">
+    <h2 class="screen-title" id="exp-h">Work experience</h2>
+    <div class="xp-grid" id="timeline"></div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section class="screen" id="education" aria-labelledby="edu-h">
+    <h2 class="screen-title" id="edu-h">Education</h2>
+    <div class="edu-grid" id="edu-grid"></div>
+    <div class="certs reveal">
+      <h3 class="uline">Certificates</h3>
+      <ul class="cert-row" id="cert-row"></ul>
+    </div>
+  </section>
+
+  <!-- CONTACT / THANK YOU -->
+  <section class="screen thanks" id="contact" aria-labelledby="contact-h">
+    <div class="thanks-inner">
+      <div class="thanks-intro">
+        <h2 id="contact-h" class="thanks-title reveal">Thank<br><span>you</span></h2>
+        <p class="thanks-sub reveal">Let's work together.</p>
+        <p class="thanks-lede reveal">I'm looking for internship and junior game designer or technical artist roles.</p>
+        <ul class="link-list reveal" id="link-list"></ul>
+        <figure class="contact-avatar reveal"><img src="public/images/profile/pixel-avatar.webp" alt="Pixel-art portrait of Shoubhik wearing a VR headset" loading="lazy"></figure>
+      </div>
+        <form class="contact-form reveal" id="contact-form" novalidate aria-labelledby="cf-title">
+          <h3 id="cf-title">Let's connect</h3>
+          <p class="cf-sub">Want to discuss a project, internship, collaboration or opportunity? Send me a message and I'll get back to you.</p>
+          <div class="cf-grid">
+            <div class="cf-field">
+              <label for="cf-name">Full name</label>
+              <input id="cf-name" name="name" type="text" autocomplete="name" required aria-describedby="cf-name-err" maxlength="100">
+              <p class="cf-err" id="cf-name-err" aria-live="polite"></p>
+            </div>
+            <div class="cf-field">
+              <label for="cf-email">Email address</label>
+              <input id="cf-email" name="email" type="email" autocomplete="email" required aria-describedby="cf-email-err" maxlength="150">
+              <p class="cf-err" id="cf-email-err" aria-live="polite"></p>
+            </div>
+            <div class="cf-field cf-wide">
+              <label for="cf-subject">Subject</label>
+              <input id="cf-subject" name="subject" type="text" required aria-describedby="cf-subject-err" maxlength="150">
+              <p class="cf-err" id="cf-subject-err" aria-live="polite"></p>
+            </div>
+            <div class="cf-field cf-wide">
+              <label for="cf-message">Message</label>
+              <textarea id="cf-message" name="message" rows="5" required aria-describedby="cf-message-err" maxlength="3000"></textarea>
+              <p class="cf-err" id="cf-message-err" aria-live="polite"></p>
+            </div>
+          </div>
+          <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" style="display:none" aria-hidden="true">
+          <div class="cf-actions">
+            <button class="btn-glow" id="cf-send" type="submit">SEND MESSAGE</button>
+            <button class="btn-plain" id="cf-clear" type="button">CLEAR FORM</button>
+            <a class="btn-plain" id="cf-resume" href="public/documents/Shoubhik_Bhattacharya_Resume.pdf" target="_blank" rel="noopener">RESUME</a>
+          </div>
+          <p class="cf-status" id="cf-status" role="status" aria-live="polite" hidden></p>
+        </form>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <span>© 2026 Shoubhik Bhattacharya</span>
+  <a href="#home">Back to top ↑</a>
+</footer>
+
+<!-- Project detail page (full-screen route: #project=<id>) -->
+<dialog class="project-popup" id="project-dialog" aria-labelledby="pd-title">
+  <div class="pd-inner" id="pd-inner"></div>
+</dialog>
+
+<!-- System architecture viewer (opened from a project popup) -->
+<dialog class="arch-dialog" id="arch-dialog" aria-labelledby="arch-title">
+  <header class="arch-head">
+    <button class="pbtn" type="button" id="arch-back">← Back to project</button>
+    <h2 id="arch-title">System architecture</h2>
+    <div class="arch-tools" role="group" aria-label="Zoom">
+      <button type="button" id="arch-out" aria-label="Zoom out">−</button>
+      <span id="arch-zoom-val" aria-live="polite">100%</span>
+      <button type="button" id="arch-in" aria-label="Zoom in">+</button>
+      <button type="button" id="arch-fit">Fit</button>
+      <button type="button" id="arch-full">Fullscreen</button>
+    </div>
+  </header>
+  <div class="arch-scroll" id="arch-scroll" tabindex="0" aria-label="Architecture diagram, scrollable"><img id="arch-img" alt="" draggable="false"></div>
+  <div class="arch-foot">
+    <p id="arch-caption"></p>
+    <div id="arch-breakdown-wrap"><h3>Technical breakdown</h3><ul id="arch-breakdown"></ul></div>
+  </div>
+</dialog>
+
+<dialog class="reel-dialog" id="reel-dialog" aria-labelledby="reel-title">
+  <button class="lb-close" type="button" id="reel-close" aria-label="Close video">×</button>
+  <div class="reel-stage">
+    <video id="reel-video" controls playsinline preload="none"></video>
+    <div class="reel-cap"><h3 id="reel-title"></h3><p id="reel-desc"></p></div>
+  </div>
+</dialog>
+
+<dialog class="lightbox" id="lightbox" aria-label="Image viewer">
+  <button class="lb-close" type="button" id="lb-close" aria-label="Close image">×</button>
+  <img id="lb-img" alt="">
+</dialog>
+
+<noscript><p style="padding:2rem;color:#fff">This portfolio uses JavaScript for its gallery and 3D hero. Resume: <a href="public/documents/Shoubhik_Bhattacharya_Resume.pdf" style="color:#7ef3ef">PDF</a>.</p></noscript>
+
+<script type="module" src="src/main.js"></script>
+</body>
+</html>
